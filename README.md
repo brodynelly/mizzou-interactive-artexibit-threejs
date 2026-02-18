@@ -1,12 +1,12 @@
 # WebGL Three.js Project
 
-A modern, high-performance WebGL application using React, Three.js, and Tailwind CSS. This project demonstrates a 3D scene with interactive controls and a clean UI overlay.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CI](https://github.com/brodynelly/mizzou-interactive-artexibit-threejs/actions/workflows/ci.yml/badge.svg)](https://github.com/brodynelly/mizzou-interactive-artexibit-threejs/actions/workflows/ci.yml) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+
+A WebGL application using React, Three.js, and Tailwind CSS. This project demonstrates a 3D scene with interactive controls and a clean UI overlay.
 
 ## Demo
 
-![Demo](https://via.placeholder.com/800x450?text=WebGL+Three.js+Demo)
 
-*Note: Replace with actual screenshot or link to live demo.*
 
 ## Stack
 
