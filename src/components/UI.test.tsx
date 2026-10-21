@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import UI from './UI';
 
 describe('UI Component', () => {
@@ -15,7 +15,16 @@ describe('UI Component', () => {
   test('renders Source link', () => {
     render(<UI />);
     const link = screen.getByText('Source').closest('a');
-    expect(link).toHaveAttribute('href', 'https://github.com');
+    expect(link).toHaveAttribute(
+      'href',
+      'https://github.com/brodynelly/mizzou-interactive-artexibit-threejs'
+    );
+  });
+
+  test('opens the About panel', () => {
+    render(<UI />);
+    fireEvent.click(screen.getByRole('button', { name: 'About' }));
+    expect(screen.getByRole('region', { name: 'About this scene' })).toBeInTheDocument();
   });
 
   test('renders controls instructions', () => {

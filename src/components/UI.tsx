@@ -1,19 +1,27 @@
 import React from 'react';
 import { Info, Github } from 'lucide-react';
+import { useState } from 'react';
 
 const UI: React.FC = () => {
+  const [aboutOpen, setAboutOpen] = useState(false);
   return (
     <div className="fixed inset-0 pointer-events-none">
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center pointer-events-auto">
         <div className="text-white font-bold text-xl">WebGL Three.js Project</div>
         <div className="flex gap-4">
-          <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center gap-2 transition-colors">
+          <button
+            type="button"
+            aria-expanded={aboutOpen}
+            aria-controls="about-panel"
+            onClick={() => setAboutOpen((open) => !open)}
+            className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center gap-2 transition-colors"
+          >
             <Info size={18} />
             <span>About</span>
           </button>
           <a
-            href="https://github.com"
+            href="https://github.com/brodynelly/mizzou-interactive-artexibit-threejs"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center gap-2 transition-colors"
@@ -23,6 +31,20 @@ const UI: React.FC = () => {
           </a>
         </div>
       </header>
+
+      {aboutOpen && (
+        <section
+          id="about-panel"
+          aria-label="About this scene"
+          className="absolute top-20 right-4 max-w-sm bg-black/70 backdrop-blur-md text-white p-4 rounded-lg pointer-events-auto"
+        >
+          <h2 className="text-lg font-bold mb-2">About this scene</h2>
+          <p className="text-sm">
+            Five animated Three.js meshes orbit a center point. Drag to rotate,
+            scroll to zoom, and right-click and drag to pan.
+          </p>
+        </section>
+      )}
 
       {/* Instructions */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-md text-white p-4 rounded-lg max-w-md pointer-events-auto">
