@@ -1,59 +1,41 @@
-# WebGL Three.js Project
+# Interactive Three.js Exhibit
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![CI](https://github.com/brodynelly/mizzou-interactive-artexibit-threejs/actions/workflows/ci.yml/badge.svg)](https://github.com/brodynelly/mizzou-interactive-artexibit-threejs/actions/workflows/ci.yml) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+[![CI](https://github.com/brodynelly/mizzou-interactive-artexibit-threejs/actions/workflows/ci.yml/badge.svg)](https://github.com/brodynelly/mizzou-interactive-artexibit-threejs/actions/workflows/ci.yml)
 
-A WebGL application using React, Three.js, and Tailwind CSS. This project demonstrates a 3D scene with interactive controls and a clean UI overlay.
+A small React and Three.js scene that arranges five animated geometric meshes around a center point. OrbitControls supports rotation, zoom, and pan. The overlay provides the scene controls and a link to this repository.
 
-## Demo
+No live demo URL is configured in this repository yet. The project can be run locally with the steps below.
 
+## Run locally
 
+Requirements: Node.js 18 or newer and npm.
 
-## Stack
+```sh
+git clone https://github.com/brodynelly/mizzou-interactive-artexibit-threejs.git
+cd mizzou-interactive-artexibit-threejs
+npm ci
+npm run dev
+```
 
-- **Framework**: [React](https://reactjs.org/) (with [Vite](https://vitejs.dev/))
-- **3D Engine**: [Three.js](https://threejs.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Linting & Formatting**: ESLint, Prettier
-- **Testing**: Vitest, React Testing Library
+Use the local URL printed by Vite. To check the project:
 
-## Setup
+```sh
+npm run lint
+npm test
+npm run build
+```
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/webgl-threejs-project.git
-    cd webgl-threejs-project
-    ```
+## Implementation
 
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
+- `src/components/ThreeScene.tsx` creates and animates the Three.js scene, lights, meshes, and orbit controls.
+- `src/components/UI.tsx` renders the HTML overlay.
+- `src/App.test.tsx` and `src/components/UI.test.tsx` cover the React interface with Vitest and Testing Library. The WebGL scene itself is mocked in the app test and is not covered by browser-based rendering tests.
+- Vite, React, TypeScript, Three.js, Tailwind CSS, ESLint, and Prettier provide the application toolchain.
 
-3.  **Run development server:**
-    ```bash
-    npm run dev
-    ```
+## CI
 
-4.  **Run tests:**
-    ```bash
-    npm test
-    ```
-
-5.  **Build for production:**
-    ```bash
-    npm run build
-    ```
-
-## Architecture
-
-- `src/components/`: Reusable React components (`ThreeScene`, `UI`).
-- `src/main.tsx`: Entry point.
-- `src/viteEnv.d.ts`: TypeScript environment definitions.
-- `eslint.config.js`: ESLint configuration.
-- `vite.config.ts`: Vite configuration.
+GitHub Actions runs formatting, ESLint, Vitest, and a production build on pull requests targeting `main` or `master`, and on pushes to the configured branches.
 
 ## License
 
-MIT
+MIT. See [LICENSE](LICENSE).
